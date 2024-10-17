@@ -1,0 +1,146 @@
+[gd_scene load_steps=9 format=3 uid="uid://bdlpcgkveml0q"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_5g57v"]
+[ext_resource type="Texture2D" uid="uid://btpwnaqsi4thd" path="res://drinkingNDriving (1).png" id="1_nnwh0"]
+[ext_resource type="PackedScene" uid="uid://6raoth6r1eah" path="res://phone.tscn" id="3_5yekr"]
+[ext_resource type="PackedScene" uid="uid://cyu1rhlco2pfl" path="res://numbers.tscn" id="4_vvw5d"]
+[ext_resource type="PackedScene" uid="uid://dlq41jbuqoxoh" path="res://hud.tscn" id="5_pmxti"]
+
+[sub_resource type="Animation" id="Animation_o8q3q"]
+resource_name = "basic_driving"
+loop_mode = 1
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_nnwh0")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Background:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [12]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Background:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.75, 0.833333, 0.916667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+}
+
+[sub_resource type="Animation" id="Animation_556iv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_nnwh0")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Background:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [12]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Background:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ep53v"]
+_data = {
+"RESET": SubResource("Animation_556iv"),
+"basic_driving": SubResource("Animation_o8q3q")
+}
+
+[node name="Main" type="Node2D"]
+position = Vector2(0, 3)
+script = ExtResource("1_5g57v")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(512, 509)
+scale = Vector2(1, 1)
+texture = ExtResource("1_nnwh0")
+vframes = 12
+
+[node name="AnimationBackground" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ep53v")
+}
+
+[node name="Phone" parent="." instance=ExtResource("3_5yekr")]
+position = Vector2(-43, 0)
+
+[node name="Slot1" parent="." instance=ExtResource("4_vvw5d")]
+position = Vector2(370, 555)
+
+[node name="Slot2" parent="." instance=ExtResource("4_vvw5d")]
+position = Vector2(432, 555)
+
+[node name="Slot3" parent="." instance=ExtResource("4_vvw5d")]
+position = Vector2(494, 555)
+
+[node name="HUD" parent="." instance=ExtResource("5_pmxti")]

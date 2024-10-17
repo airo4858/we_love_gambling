@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dlq41jbuqoxoh"]
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 13.0
+offset_top = 9.0
+offset_right = 124.0
+offset_bottom = 38.0
+text = "Money: $500"
