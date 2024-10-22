@@ -2,10 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://hj6hdvra6e8k" path="res://drivingNGambling.png" id="1_vyckw"]
 
-[sub_resource type="Animation" id="Animation_uxcxl"]
-resource_name = "no_gambling"
-loop_mode = 1
-step = 0.142857
+[sub_resource type="Animation" id="Animation_lsbg0"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -55,8 +53,10 @@ tracks/3/keys = {
 "values": [0]
 }
 
-[sub_resource type="Animation" id="Animation_lsbg0"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_uxcxl"]
+resource_name = "no_gambling"
+loop_mode = 1
+step = 0.142857
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
