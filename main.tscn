@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://bdlpcgkveml0q"]
+[gd_scene load_steps=10 format=3 uid="uid://bdlpcgkveml0q"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_5g57v"]
 [ext_resource type="Texture2D" uid="uid://btpwnaqsi4thd" path="res://drinkingNDriving (1).png" id="1_nnwh0"]
 [ext_resource type="PackedScene" uid="uid://6raoth6r1eah" path="res://phone.tscn" id="3_5yekr"]
 [ext_resource type="PackedScene" uid="uid://cyu1rhlco2pfl" path="res://numbers.tscn" id="4_vvw5d"]
 [ext_resource type="PackedScene" uid="uid://dlq41jbuqoxoh" path="res://hud.tscn" id="5_pmxti"]
+[ext_resource type="Texture2D" uid="uid://bvdh5be176l10" path="res://Lose.png.png" id="6_lrjoi"]
 
 [sub_resource type="Animation" id="Animation_556iv"]
 length = 0.001
@@ -143,3 +144,7 @@ position = Vector2(432, 555)
 position = Vector2(494, 555)
 
 [node name="HUD" parent="." instance=ExtResource("5_pmxti")]
+
+[node name="Lose" type="Sprite2D" parent="."]
+position = Vector2(473, 275)
+texture = ExtResource("6_lrjoi")
