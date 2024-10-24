@@ -116,8 +116,16 @@ func _input(event):
 				else:
 					await slots.animation_finished
 					$aw_dang_it.play()
+				if (money <= 100):
+					$RearviewAnimation.play("Shark1")
+				elif (money <= 75):
+					$RearviewAnimation.play("Shark2")
+				elif (money <= 50):
+					$RearviewAnimation.play("Shark3")
+				elif (money <= 25):
+					$RearviewAnimation.play("Shark4")
 				#Losing Code
-				if (money <= 0):
+				elif (money <= 0):
 					$Lose.visible = true
 					get_tree().paused = true
 				#await slots.animation_finished
@@ -126,3 +134,4 @@ func _input(event):
 func _process(_delta):
 	$Lose.visible = false
 	$AnimationBackground.play("basic_driving")
+	$RearviewAnimation.play("Base")
