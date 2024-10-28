@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-var money : int = 500
+var money : int = 250
 
 func go_gambling(num : int):
 	money -= num

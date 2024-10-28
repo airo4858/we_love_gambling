@@ -4,7 +4,7 @@ var slot1_number: int
 var slot2_number: int
 var slot3_number: int
 var gambling_state : bool = true
-@export var money : int = 500
+@export var money : int = 250
 @onready var slots = get_node("Slot3").get_node("AnimationSlots")
 
 func _input(event):
@@ -116,11 +116,11 @@ func _input(event):
 				else:
 					await slots.animation_finished
 					$aw_dang_it.play()
-				if (money <= 100):
+				if (money <= 100 and money > 75):
 					$RearviewAnimation.play("Shark1")
-				elif (money <= 75):
+				elif (money <= 75 and money > 50):
 					$RearviewAnimation.play("Shark2")
-				elif (money <= 50):
+				elif (money <= 50 and money > 25):
 					$RearviewAnimation.play("Shark3")
 				elif (money <= 25):
 					$RearviewAnimation.play("Shark4")
@@ -134,4 +134,3 @@ func _input(event):
 func _process(_delta):
 	$Lose.visible = false
 	$AnimationBackground.play("basic_driving")
-	$RearviewAnimation.play("Base")
