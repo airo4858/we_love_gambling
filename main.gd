@@ -22,6 +22,8 @@ func _input(event):
 				slot3_number = randf()*7 + 1
 				#print("Slot3 = ")
 				#print(slot3_number)
+				if (slot1_number == slot2_number):
+					slot3_number = slot1_number
 				get_node("Phone").get_node("AnimationPhone").play("yes_gambling")
 				money -= 10
 				get_tree().get_root().get_node("Main/HUD").go_gambling(10)
